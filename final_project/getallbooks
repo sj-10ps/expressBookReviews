@@ -1,0 +1,23 @@
+curl http://localhost:5000/
+
+
+StatusCode        : 200
+StatusDescription : OK
+Content           : {"1":{"author":"Chinua Achebe","title":"Things Fall
+                    Apart","reviews":{}},"2":{"author":"Hans Christian Andersen","title":"Fairy
+                    tales","reviews":{}},"3":{"author":"Dante Alighieri","title":"The Divine...
+RawContent        : HTTP/1.1 200 OK
+                    Connection: keep-alive
+                    Keep-Alive: timeout=5
+                    Content-Length: 744
+                    Content-Type: application/json; charset=utf-8
+                    Date: Thu, 12 Feb 2026 01:14:00 GMT
+                    ETag: W/"2e8-vV2ndFHyslYEvRcTKr...
+Forms             : {}
+Headers           : {[Connection, keep-alive], [Keep-Alive, timeout=5], [Content-Length, 744],
+                    [Content-Type, application/json; charset=utf-8]...}
+Images            : {}
+InputFields       : {}
+Links             : {}
+ParsedHtml        : System.__ComObject
+RawContentLength  : 744

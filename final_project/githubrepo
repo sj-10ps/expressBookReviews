@@ -1,0 +1,26 @@
+curl https://api.github.com/repos/sj-10ps/expressBookReviews  
+
+
+StatusCode        : 200
+StatusDescription : OK
+Content           : {"id":1155829542,"node_id":"R_kgDOROSPJg","name":"expressBookReviews","full_name":"sj-10p 
+                    s/expressBookReviews","private":false,"owner":{"login":"sj-10ps","id":216095196,"node_id" 
+                    :"U_kgDODOFZ3A","avata...
+RawContent        : HTTP/1.1 200 OK
+                    Vary: Accept,Accept-Encoding, Accept, X-Requested-With
+                    X-GitHub-Media-Type: github.v3; format=json
+                    x-github-api-version-selected: 2022-11-28
+                    Access-Control-Expose-Headers: ETag, Li...
+Forms             : {}
+Headers           : {[Vary, Accept,Accept-Encoding, Accept, X-Requested-With], [X-GitHub-Media-Type,
+                    github.v3; format=json], [x-github-api-version-selected, 2022-11-28],
+                    [Access-Control-Expose-Headers, ETag, Link, Location, Retry-After, X-GitHub-OTP,
+                    X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource,
+                    X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval,
+                    X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset]...}
+Images            : {}
+InputFields       : {}
+Links             : {}
+ParsedHtml        : System.__ComObject
+RawContentLength  : 18651
+
