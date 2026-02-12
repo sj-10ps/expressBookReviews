@@ -38,17 +38,23 @@ public_users.get('/isbn/:isbn',function (req, res) {
  });
   
 // Get book details based on author
-public_users.get('/author/:author',function (req, res) {
-  //Write your code here
-  const bookData=Object.entries(books).filter(([key,book])=>book.author===req.params.author)
+public_users.get('/author/:author', function (req, res) {
+    const author = req.params.author;
 
-  return res.status(200).json(bookData);
+    // Convert books object to array and filter by author
+    const bookData = Object.entries(books)
+        .filter(([isbn, book]) => book.author === author)
+        .map(([isbn, book]) => ({ isbn, ...book })); // include ISBN in each object
+
+    // Return the filtered books
+    return res.status(200).json(bookData);
 });
+
 
 // Get all books based on title
 public_users.get('/title/:title',function (req, res) {
   //Write your code here
-  const bookData=Object.values(books).filter(b=>b.title===req.params.id)
+  const bookData=Object.values(books).filter(b=>b.title===req.params.title)
   return res.status(200).json(bookData);
 });
 

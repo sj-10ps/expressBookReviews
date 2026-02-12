@@ -1,21 +1,22 @@
 curl "http://localhost:5000/title/The Epic Of Gilgamesh"
+>>
 
 
 StatusCode        : 200
 StatusDescription : OK
-Content           : []
+Content           : [{"author":"Unknown","title":"The Epic Of Gilgamesh","reviews":{}}]
 RawContent        : HTTP/1.1 200 OK
                     Connection: keep-alive
                     Keep-Alive: timeout=5
-                    Content-Length: 2
+                    Content-Length: 67
                     Content-Type: application/json; charset=utf-8
-                    Date: Thu, 12 Feb 2026 01:24:50 GMT
-                    ETag: W/"2-l9Fw4VUO7kr8CvBlt4zaMC...
+                    Date: Thu, 12 Feb 2026 02:54:27 GMT
+                    ETag: W/"43-BxnN0IAcl0Bpb9LkwRvp...
 Forms             : {}
-Headers           : {[Connection, keep-alive], [Keep-Alive, timeout=5], [Content-Length, 2], [Content-Type,   
-                    application/json; charset=utf-8]...}
+Headers           : {[Connection, keep-alive], [Keep-Alive, timeout=5], [Content-Length, 67], [Content-Type, application/json;
+                    charset=utf-8]...}
 Images            : {}
 InputFields       : {}
 Links             : {}
 ParsedHtml        : System.__ComObject
-RawContentLength  : 2
+RawContentLength  : 67

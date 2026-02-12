@@ -14,24 +14,35 @@ const authenticatedUser = (username,password)=>{ //returns boolean
 }
 
 //only registered users can login
-regd_users.post("/login", (req,res) => {
-  //Write your code here
-  const {username,password}=req.body
-   if (!username || !password) {
+regd_users.post("/login", (req, res) => {
+  const { username, password } = req.body;
+
+  // 1️⃣ Validate input
+  if (!username || !password) {
     return res.status(400).json({ message: "Username and password are required" });
   }
-  const userData=users.find(u=>u.username===username)
-  if(!userData){
-    res.status(401).json({message:'Username doesnt exist'})
+
+  // 2️⃣ Check if user exists
+  const userData = users.find(u => u.username === username);
+  if (!userData) {
+    return res.status(401).json({ message: "Username doesn't exist" });
   }
-  if(userData.password!==password){
-     res.status(401).json({message:'Invalid password'})
+
+  // 3️⃣ Validate password
+  if (userData.password !== password) {
+    return res.status(401).json({ message: "Invalid password" });
   }
-  
-  const token=jwt.sign({username:username},"fingerprint_customer",{expiresIn:"1h"})
-  req.session.accessToken=token
-  return res.status(200).json({message: "Login Successfull",token:token});
+
+  // 4️⃣ Create JWT token
+  const token = jwt.sign({ username: username }, "fingerprint_customer", { expiresIn: "1h" });
+
+  // 5️⃣ Store token in session
+  req.session.accessToken = token;
+
+  // 6️⃣ Return success response
+  return res.status(200).json({ message: "Login Successful", token: token });
 });
+
 
 // Add a book review
 regd_users.put("/auth/review/:isbn", (req, res) => {
@@ -58,26 +69,25 @@ regd_users.put("/auth/review/:isbn", (req, res) => {
   });
 });
 
-regd_users.delete('/auth/review/:isbn', function(req, res) {
-  const isbn = req.params.isbn;
-  const book = books[isbn];
 
-  if (!book) {
-    return res.status(404).json({ message: "Book not found" });
-  }
+regd_users.delete("/auth/review/:isbn", (req, res) => {
+    const isbn = req.params.isbn;
+    const book = books[isbn];
+    if (!book) {
+        return res.status(404).json({ message: "Book not found" });
+    }
 
-  const username = req.user.username; 
+    const username = req.user.username;
+    if (!book.reviews[username]) {
+        return res.status(404).json({ message: `No review found for user ${username} on ISBN ${isbn}` });
+    }
 
-  if (!book.reviews[username]) {
-    return res.status(404).json({ message: "You haven't posted a review for this book" });
-  }
+    delete book.reviews[username];
 
-  delete book.reviews[username];
-
-  return res.status(200).json({
-    message: "Your review has been deleted",
-    reviews: book.reviews
-  });
+    return res.status(200).json({
+        message: `Review for ISBN ${isbn} by user ${username} has been deleted`,
+        reviews: book.reviews
+    });
 });
 
 
